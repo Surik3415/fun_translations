@@ -1,4 +1,7 @@
-module FunTranslation
+# frozen_string_literal: true
+
+# top-level documentation comment for `module FunTranslations`
+module FunTranslations
     class Client
         include FunTranslation:Connection
         def initialize  
@@ -6,7 +9,7 @@ module FunTranslation
         
         #endpoint = :yoda, :pirate
         def translate(endpoint, text)
-            FunTranslation:Translation.new(
+            FunTranslations:Translation.new(
             post ("/translate/#{endpoint}.json", { text: text }) # --> json
             )
         end

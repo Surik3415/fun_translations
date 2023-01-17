@@ -1,5 +1,9 @@
-module FunTranslation
+# frozen_string_literal: true
 
+# top-level documentation comment for `module FunTranslations`
+module FunTranslations
+
+    # top-level documentation comment for `module FunTranslations`
     module Request
         include FunTranslation::Connection
         def post(path, params = {})
@@ -10,7 +14,10 @@ module FunTranslation
             ) 
         end
         def respond_with (raw_response)
-            JSON.parse(raw_response.body)
+            body = raw_response.body.empty? ?
+                   raw_response.body : 
+                   JSON.parse(raw_response.body)
+            body['contents']
         end
     end 
 end
